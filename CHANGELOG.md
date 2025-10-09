@@ -1,2 +1,1 @@
-- Fixed wither skeleton bow chances being inverted by accident.
-- Added missing config translation text.
+- Updated to Minecraft 1.21.10.

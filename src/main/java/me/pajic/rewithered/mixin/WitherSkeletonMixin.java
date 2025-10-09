@@ -28,6 +28,7 @@ public abstract class WitherSkeletonMixin extends Mob {
         super(entityType, level);
     }
 
+    @SuppressWarnings("resource")
     @Inject(
             method = "populateDefaultEquipmentSlots",
             at = @At("HEAD")

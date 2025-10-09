@@ -10,9 +10,6 @@
   "icon": "icon.png",
   "environment": "*",
   "entrypoints": {
-    "client": [
-      "me.pajic.rewithered.ClientMain"
-    ],
     "main": [
       "me.pajic.rewithered.Main"
     ]

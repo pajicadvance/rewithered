@@ -17,9 +17,9 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 //? if < 1.21.8 {
-import org.jetbrains.annotations.NotNull;
+/*import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Shadow;
-//?}
+*///?}
 
 @Mixin(AbstractSkeleton.class)
 public abstract class AbstractSkeletonMixin extends Mob {
@@ -28,7 +28,7 @@ public abstract class AbstractSkeletonMixin extends Mob {
     }
 
     //? if < 1.21.8
-    @Shadow public abstract void setItemSlot(@NotNull EquipmentSlot slot, @NotNull ItemStack stack);
+    /*@Shadow public abstract void setItemSlot(@NotNull EquipmentSlot slot, @NotNull ItemStack stack);*/
 
     @Inject(
             method = "finalizeSpawn",
@@ -40,7 +40,7 @@ public abstract class AbstractSkeletonMixin extends Mob {
     private void assignWeapon(
             ServerLevelAccessor level,
             DifficultyInstance difficulty,
-            /*? if < 1.21.8 {*/MobSpawnType spawnType/*?}*//*? if >= 1.21.8 {*//*EntitySpawnReason spawnType*//*?}*/,
+            /*? if < 1.21.8 {*//*MobSpawnType spawnType*//*?} else {*/EntitySpawnReason spawnType/*?}*/,
             SpawnGroupData spawnGroupData,
             CallbackInfoReturnable<SpawnGroupData> cir
     ) {
