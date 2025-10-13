@@ -3,18 +3,14 @@ package me.pajic.rewithered.mixin;
 import com.llamalad7.mixinextras.injector.v2.WrapWithCondition;
 import me.pajic.rewithered.Main;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.Difficulty;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.monster.WitherSkeleton;
 import net.minecraft.world.entity.projectile.AbstractArrow;
 import net.minecraft.world.entity.projectile.Arrow;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import org.spongepowered.asm.mixin.Mixin;
@@ -28,41 +24,12 @@ public abstract class WitherSkeletonMixin extends Mob {
         super(entityType, level);
     }
 
-    @SuppressWarnings("resource")
     @Inject(
             method = "populateDefaultEquipmentSlots",
             at = @At("HEAD")
     )
     private void spawnWitherSkeletonsWithArmor(RandomSource random, DifficultyInstance difficulty, CallbackInfo ci) {
-        if (Main.CONFIG.witherSkeletonTweaks.spawnWithArmor.get() && random.nextFloat() < 0.15F * difficulty.getSpecialMultiplier()) {
-            int i = random.nextInt(2);
-            float f = level().getDifficulty() == Difficulty.HARD ? 0.1F : 0.25F;
-            if (random.nextFloat() < 0.095F) {
-                i++;
-            }
-            if (random.nextFloat() < 0.095F) {
-                i++;
-            }
-            if (random.nextFloat() < 0.095F) {
-                i++;
-            }
-            boolean bl = true;
-            for (EquipmentSlot equipmentSlot : EquipmentSlot.values()) {
-                if (equipmentSlot.getType() == EquipmentSlot.Type.HUMANOID_ARMOR) {
-                    ItemStack itemStack = getItemBySlot(equipmentSlot);
-                    if (!bl && random.nextFloat() < f) {
-                        break;
-                    }
-                    bl = false;
-                    if (itemStack.isEmpty()) {
-                        Item item = getEquipmentForSlot(equipmentSlot, i);
-                        if (item != null) {
-                            setItemSlot(equipmentSlot, new ItemStack(item));
-                        }
-                    }
-                }
-            }
-        }
+        if (Main.CONFIG.witherSkeletonTweaks.spawnWithArmor.get()) super.populateDefaultEquipmentSlots(random, difficulty);
     }
 
     @Inject(
@@ -70,14 +37,7 @@ public abstract class WitherSkeletonMixin extends Mob {
             at = @At("HEAD")
     )
     private void enchantEquipmentOnWitherSkeletons(ServerLevelAccessor level, RandomSource random, DifficultyInstance difficulty, CallbackInfo ci) {
-        if (Main.CONFIG.witherSkeletonTweaks.spawnWithEnchantedEquipment.get()) {
-            enchantSpawnedWeapon(level, random, difficulty);
-            for (EquipmentSlot equipmentSlot : EquipmentSlot.values()) {
-                if (equipmentSlot.getType() == EquipmentSlot.Type.HUMANOID_ARMOR) {
-                    enchantSpawnedArmor(level, random, equipmentSlot, difficulty);
-                }
-            }
-        }
+        if (Main.CONFIG.witherSkeletonTweaks.spawnWithEnchantedEquipment.get()) super.populateDefaultEquipmentEnchantments(level, random, difficulty);
     }
 
     @WrapWithCondition(

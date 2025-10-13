@@ -1,1 +1,1 @@
-- Updated to Minecraft 1.21.10.
+- Improved compatibility with other mods which modify equipment on wither skeletons.
