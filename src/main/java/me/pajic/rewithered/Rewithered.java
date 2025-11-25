@@ -1,33 +1,33 @@
-package me.pajic.modid;
+package me.pajic.rewithered;
 
 import me.fzzyhmstrs.fzzy_config.api.ConfigApiJava;
-import me.pajic.modid.config.ModConfig;
-import me.pajic.modid.platform.Platform;
+import me.pajic.rewithered.config.ModConfig;
+import me.pajic.rewithered.platform.Platform;
 import net.minecraft.resources.ResourceLocation;
+import net.ramixin.mixson.debug.DebugMode;
+import net.ramixin.mixson.inline.Mixson;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 //? fabric {
-import me.pajic.modid.platform.fabric.FabricPlatform;
+import me.pajic.rewithered.platform.fabric.FabricPlatform;
 //?} neoforge {
-/*import me.pajic.modid.platform.neoforge.NeoforgePlatform;
+/*import me.pajic.rewithered.platform.neoforge.NeoforgePlatform;
 *///?}
 
 @SuppressWarnings("LoggingSimilarMessage")
-public class ModTemplate {
+public class Rewithered {
 
-	public static final String MOD_ID = /*$ mod_id*/ "modid";
-	public static final String MOD_VERSION = /*$ mod_version*/ "0.1.0";
-	public static final String MOD_FRIENDLY_NAME = /*$ mod_name*/ "modname";
+	public static final String MOD_ID = /*$ mod_id*/ "rewithered";
+	public static final String MOD_VERSION = /*$ mod_version*/ "1.0.3";
+	public static final String MOD_FRIENDLY_NAME = /*$ mod_name*/ "Rewithered";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 	public static final ResourceLocation CONFIG_RL = id("config");
 	public static ModConfig CONFIG = ConfigApiJava.registerAndLoadConfig(ModConfig::new);
 	private static final Platform PLATFORM = createPlatformInstance();
 
 	public static void onInitialize() {
-	}
-
-	public static void onInitializeClient() {
+		if (PLATFORM.isDebug()) Mixson.setDebugMode(DebugMode.EXPORT);
 	}
 
 	public static Platform xplat() {

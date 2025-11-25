@@ -1,11 +1,10 @@
 {
-  "package": "me.pajic.modid.mixin",
+  "package": "me.pajic.rewithered.mixin",
   "required": true,
   "minVersion": "0.8",
   "compatibilityLevel": "JAVA_21",
   "injectors": {
     "defaultRequire": 1
   },
-  "mixins": [],
-  "client": []
+  "mixins": []
 }

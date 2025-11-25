@@ -1,24 +1,29 @@
-# Multicutter
+# Rewithered
 
-This is a fork of [rotgruengelb's Stonecutter Mod Template](https://github.com/rotgruengelb/stonecutter-mod-template) altered to fit my specific needs.
+This mod adds Potions of Decay and Arrows of Decay which apply the Wither status effect and tweaks wither skeletons to integrate the effect better into the game.
 
-Differences from original template:
+Requires [Fabric API](https://modrinth.com/mod/fabric-api) and [Fzzy Config](https://modrinth.com/mod/fzzy-config).
 
-- Enabled Parchment mappings.
-- Added automatic mixin registration.
-  - Mixins no longer need to be manually added to the mixin config. By default, they're added as common mixins (both server and client side). To make a mixin client side only, use the following annotation: `@MixinEnvironment(type = MixinEnvironment.Env.CLIENT)`.
-- Added versioned access wideners and access transformers.
-  - All AWs and ATs are stored in `src/main/resources/aw`. To add an AW/AT for a version, create a new file in that folder, for example `1.21.1.accesswidener` or `1.21.1.cfg`.
-- Added versioned resources.
-  - Version specific resources can be placed in `src/main/resources/resourcepacks` in the version specific folders, for example `1_21_1/rp` contains client side assets which are only going to be loaded in 1.21.1.
-  - There is a small mixin that hides these resource packs from resource pack and datapack selection UIs to prevent clutter (see `PackSelectionModelMixin`).
-  - Note that this is implemented for Fabric and NeoForge only.
-- Added dependencies:
-  - Fzzy Config as the config API
-  - Mixson for runtime JSON patching
-  - MixinConstraints for conditional mixin loading
-- Added a few more useful platform methods.
-- Added handling for pre-release versions.
-- Added handling for ResourceLocation -> Identifier rename which occured in 1.21.11.
-  - It's a bit scuffed, but it works. You may need to add additional string replacements in the buildscripts depending on your project.
-- Disabled datagen.
+## Features
+
+### Potion of Decay
+- Applies the Wither effect, brewed using awkward potions and wither roses.
+- Can be upgraded to a long variant which lasts longer or strong variant which has a higher potency but lasts shorter.
+- Has splash and lingering variants.
+- Lingering variant can be used to craft Arrows of Decay, identically to how other tipped arrows are crafted.
+
+### Wither skeleton tweaks
+Wither skeletons now:
+- Spawn instead of regular skeletons in soul sand valleys and nether fortresses.
+- Wield a bow in soul sand valleys, and have a chance to wield a bow in nether fortresses.
+- Shoot wither arrows instead of flaming arrows when wielding a bow.
+- Drop wither arrows on death.
+- Have a chance to spawn wearing armor, just like regular skeletons.
+- Have a chance to spawn with enchanted weapons and armor, just like regular skeletons.
+
+## Configuration
+
+In the configuration screen accessed via [Mod Menu](https://modrinth.com/mod/modmenu), you can:
+- Toggle any of the features on or off.
+- Adjust the duration and potency of the decay potion and its variants.
+- Adjust the chances for wither skeletons to spawn wielding a bow.
