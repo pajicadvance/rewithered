@@ -1,3 +1,1 @@
-- Fixed rare crash on launch due to a race condition when patching game resources.
-- Added Ukrainian translation ([#1](https://github.com/pajicadvance/rewithered/pull/1)).
-- Internal changes. This should not affect anything in the mod in any way. Please report any bugs or discrepancies at the issue tracker.
+- Fixed resource modifications applying multiple times.

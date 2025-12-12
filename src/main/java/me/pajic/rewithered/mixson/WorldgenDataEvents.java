@@ -7,7 +7,10 @@ import net.ramixin.mixson.inline.Mixson;
 
 public class WorldgenDataEvents {
 
+	private static boolean initialized = false;
+
     public static void register() {
+		if (initialized) return;
         if (Rewithered.CONFIG.witherSkeletonTweaks.replaceSkeletonsInSoulSandValley.get()) Mixson.registerEvent(
                 Mixson.DEFAULT_PRIORITY,
                 rl -> rl.toString().equals("minecraft:worldgen/biome/soul_sand_valley"),
@@ -70,5 +73,6 @@ public class WorldgenDataEvents {
                 },
                 true
         );
+		initialized = true;
     }
 }

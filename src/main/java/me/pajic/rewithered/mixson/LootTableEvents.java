@@ -7,6 +7,7 @@ import net.ramixin.mixson.inline.Mixson;
 
 public class LootTableEvents {
 
+	private static boolean initialized = false;
     private static final JsonElement decayArrowPool = JsonParser.parseString("""
             {
               "bonus_rolls": 0.0,
@@ -78,6 +79,7 @@ public class LootTableEvents {
             """);
 
     public static void register() {
+		if (initialized) return;
         if (Rewithered.CONFIG.witherSkeletonTweaks.dropWitherArrows.get()) Mixson.registerEvent(
                 Mixson.DEFAULT_PRIORITY,
                 rl -> rl.toString().equals("minecraft:loot_table/entities/wither_skeleton"),
@@ -87,5 +89,6 @@ public class LootTableEvents {
                                 .getAsJsonArray("pools").add(decayArrowPool.deepCopy()),
                 true
         );
+		initialized = true;
     }
 }
