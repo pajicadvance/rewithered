@@ -1,8 +1,8 @@
 package me.pajic.rewithered.platform.neoforge;
 
 //? neoforge {
-/*
-import me.pajic.rewithered.Rewithered;
+
+/*import me.pajic.rewithered.Rewithered;
 import me.pajic.rewithered.mixson.LootTableEvents;
 import me.pajic.rewithered.mixson.WorldgenDataEvents;
 import me.pajic.rewithered.potion.ModPotions;

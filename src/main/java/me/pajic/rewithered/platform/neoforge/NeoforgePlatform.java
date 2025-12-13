@@ -1,8 +1,8 @@
 package me.pajic.rewithered.platform.neoforge;
 
 //? neoforge {
-/*
-import me.pajic.rewithered.platform.Platform;
+
+/*import me.pajic.rewithered.platform.Platform;
 import net.neoforged.fml.ModList;
 import net.neoforged.fml.loading.FMLLoader;
 

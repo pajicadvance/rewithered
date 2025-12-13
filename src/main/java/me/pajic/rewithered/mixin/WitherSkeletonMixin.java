@@ -8,9 +8,9 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.monster.WitherSkeleton;
-import net.minecraft.world.entity.projectile.AbstractArrow;
-import net.minecraft.world.entity.projectile.Arrow;
+import net.minecraft.world.entity.monster.skeleton.WitherSkeleton;
+import net.minecraft.world.entity.projectile.arrow.AbstractArrow;
+import net.minecraft.world.entity.projectile.arrow.Arrow;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import org.spongepowered.asm.mixin.Mixin;
@@ -44,7 +44,10 @@ public abstract class WitherSkeletonMixin extends Mob {
             method = "getArrow",
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/world/entity/projectile/AbstractArrow;igniteForSeconds(F)V"
+					//? if < 1.21.11
+                    //target = "Lnet/minecraft/world/entity/projectile/AbstractArrow;igniteForSeconds(F)V"
+					//? if >= 1.21.11
+					target = "Lnet/minecraft/world/entity/projectile/arrow/AbstractArrow;igniteForSeconds(F)V"
             )
     )
     private boolean replaceIgniteWithWitherEffect(AbstractArrow instance, float v) {

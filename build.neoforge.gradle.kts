@@ -26,19 +26,27 @@ stonecutter {
 	val dir = eval(current.version, ">1.21.10")
 	replacements.string {
 		direction = dir
-		replace(".ResourceLocation", ".Identifier")
+		replace("ValidatedIdentifier", "ValidatedIdentifier")
 	}
 	replacements.string {
 		direction = dir
-		replace("ResourceLocation.", "Identifier.")
+		replace("ResourceLocation", "Identifier")
 	}
 	replacements.string {
 		direction = dir
-		replace("<ResourceLocation", "<Identifier")
+		replace("net.minecraft.world.entity.monster.AbstractSkeleton", "net.minecraft.world.entity.monster.skeleton.AbstractSkeleton")
 	}
 	replacements.string {
 		direction = dir
-		replace(" ResourceLocation ", " Identifier ")
+		replace("net.minecraft.world.entity.monster.WitherSkeleton", "net.minecraft.world.entity.monster.skeleton.WitherSkeleton")
+	}
+	replacements.string {
+		direction = dir
+		replace("net.minecraft.world.entity.projectile.AbstractArrow", "net.minecraft.world.entity.projectile.arrow.AbstractArrow")
+	}
+	replacements.string {
+		direction = dir
+		replace("net.minecraft.world.entity.projectile.Arrow", "net.minecraft.world.entity.projectile.arrow.Arrow")
 	}
 }
 
@@ -50,8 +58,6 @@ fletchingTable {
 
 neoForge {
 	version = property("deps.neoforge") as String
-	accessTransformers.from(rootProject.file("src/main/resources/aw/${stonecutter.current.version}.cfg"))
-	validateAccessTransformers = true
 
 	if (hasProperty("deps.parchment")) parchment {
 		val (mc, ver) = (property("deps.parchment") as String).split(':')

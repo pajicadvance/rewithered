@@ -1,1 +1,1 @@
-- Fixed resource modifications applying multiple times.
+- Updated to Minecraft 1.21.11.
