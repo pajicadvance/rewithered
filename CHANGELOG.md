@@ -1,1 +1,1 @@
-- Updated to Minecraft 1.21.11.
+- Made the color of the Wither effect slightly darker so that it can be more easily told apart from Weaving.
