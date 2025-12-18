@@ -1,1 +1,1 @@
-- Made the color of the Wither effect slightly darker so that it can be more easily told apart from Weaving.
+- Added Simplified Chinese translation ([#3](https://github.com/pajicadvance/rewithered/pull/3)).
