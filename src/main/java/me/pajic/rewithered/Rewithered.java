@@ -19,8 +19,6 @@ import me.pajic.rewithered.platform.fabric.FabricPlatform;
 public class Rewithered {
 
 	public static final String MOD_ID = /*$ mod_id*/ "rewithered";
-	public static final String MOD_VERSION = /*$ mod_version*/ "1.0.6";
-	public static final String MOD_FRIENDLY_NAME = /*$ mod_name*/ "Rewithered";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 	public static final Identifier CONFIG_RL = id("config");
 	public static ModConfig CONFIG = ConfigApiJava.registerAndLoadConfig(ModConfig::new);

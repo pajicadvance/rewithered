@@ -1,6 +1,7 @@
 package me.pajic.rewithered.mixin;
 
 import me.pajic.rewithered.Rewithered;
+import me.pajic.rewithered.util.ModUtil;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.entity.EntityType;
@@ -53,8 +54,8 @@ public abstract class AbstractSkeletonMixin extends Mob {
 			SpawnGroupData spawnGroupData,
 			CallbackInfoReturnable<SpawnGroupData> cir
     ) {
-        boolean isInFortress = level.getLevel().structureManager().getStructureAt(
-                getOnPos(),
+        boolean isInFortress = ModUtil.getStructureAt(
+				level, level.getLevel().structureManager(), getOnPos(),
                 level.registryAccess().lookupOrThrow(Registries.STRUCTURE).getOrThrow(BuiltinStructures.FORTRESS).value()
         ) != StructureStart.INVALID_START;
         if (getType() == EntityType.WITHER_SKELETON) {

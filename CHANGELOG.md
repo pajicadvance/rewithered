@@ -1,1 +1,2 @@
-- Added Simplified Chinese translation ([#3](https://github.com/pajicadvance/rewithered/pull/3)).
+- Fixed deadlock when skeletons are spawned in modded structures ([#6](https://github.com/pajicadvance/rewithered/issues/6)).
+- Updated Simplified Chinese translation to match Bedrock Edition ([#5](https://github.com/pajicadvance/rewithered/issues/5)).
