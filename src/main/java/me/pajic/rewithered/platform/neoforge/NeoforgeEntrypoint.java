@@ -3,7 +3,6 @@ package me.pajic.rewithered.platform.neoforge;
 //? neoforge {
 
 /*import me.pajic.rewithered.Rewithered;
-import me.pajic.rewithered.mixson.DataPatches;
 import me.pajic.rewithered.potion.ModPotions;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -28,7 +27,6 @@ public class NeoforgeEntrypoint {
 
 	@SubscribeEvent
 	private static void initRegistry(RegisterEvent event) {
-		DataPatches.init();
 		ModPotions.init();
 		event.register(
 				Registries.POTION,

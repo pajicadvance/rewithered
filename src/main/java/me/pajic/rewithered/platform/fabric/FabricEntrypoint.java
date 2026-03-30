@@ -4,7 +4,6 @@ package me.pajic.rewithered.platform.fabric;
 
 import me.pajic.rewithered.Rewithered;
 import dev.kikugie.fletching_table.annotation.fabric.Entrypoint;
-import me.pajic.rewithered.mixson.DataPatches;
 import me.pajic.rewithered.potion.ModPotions;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.registry.FabricPotionBrewingBuilder;
@@ -19,7 +18,6 @@ public class FabricEntrypoint implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		DataPatches.init();
 		Rewithered.onInitialize();
 		ModPotions.init();
 		initRegistry();

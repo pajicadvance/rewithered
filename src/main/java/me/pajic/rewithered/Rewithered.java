@@ -2,6 +2,7 @@ package me.pajic.rewithered;
 
 import me.fzzyhmstrs.fzzy_config.api.ConfigApiJava;
 import me.pajic.rewithered.config.ModConfig;
+import me.pajic.rewithered.mixson.DataPatches;
 import me.pajic.rewithered.platform.Platform;
 import net.minecraft.resources.Identifier;
 import org.slf4j.Logger;
@@ -21,7 +22,9 @@ public class Rewithered {
 	private static final Platform PLATFORM = createPlatformInstance();
 	public static ModConfig CONFIG = ConfigApiJava.registerAndLoadConfig(ModConfig::new);
 
-	public static void onInitialize() {}
+	public static void onInitialize() {
+		DataPatches.init();
+	}
 
 	public static Platform xplat() {
 		return PLATFORM;
