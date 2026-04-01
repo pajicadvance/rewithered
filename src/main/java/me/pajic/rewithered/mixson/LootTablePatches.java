@@ -78,7 +78,7 @@ public class LootTablePatches {
             """);
 
 	public static void init() {
-		if (Rewithered.CONFIG.witherSkeletonTweaks.dropWitherArrows.get()) MixsonHelper.registerSingleJsonPersistent(
+		if (Rewithered.CONFIG.witherSkeletonTweaks.dropWitherArrows.get()) MixsonHelper.registerSingleJson(
 				"Add wither arrow drop to wither skeletons with bows",
 				new Index("minecraft:loot_table/entities/wither_skeleton"),
 				context ->

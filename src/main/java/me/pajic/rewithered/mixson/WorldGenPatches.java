@@ -8,7 +8,7 @@ import net.ramixin.mixson.util.Index;
 public class WorldGenPatches {
 
 	public static void init() {
-		if (Rewithered.CONFIG.witherSkeletonTweaks.replaceSkeletonsInSoulSandValley.get()) MixsonHelper.registerSingleJsonPersistent(
+		if (Rewithered.CONFIG.witherSkeletonTweaks.replaceSkeletonsInSoulSandValley.get()) MixsonHelper.registerSingleJson(
 				"Replace skeletons with wither skeletons in soul sand valleys",
 				new Index("minecraft:worldgen/biome/soul_sand_valley"),
 				context -> {
@@ -40,7 +40,7 @@ public class WorldGenPatches {
 					if (!witherSkeleton.isEmpty()) monsters.add(witherSkeleton);
 				}
 		);
-		if (Rewithered.CONFIG.witherSkeletonTweaks.replaceSkeletonsInFortress.get()) MixsonHelper.registerSingleJsonPersistent(
+		if (Rewithered.CONFIG.witherSkeletonTweaks.replaceSkeletonsInFortress.get()) MixsonHelper.registerSingleJson(
 				"Replace skeletons with wither skeletons in fortresses",
 				new Index("minecraft:worldgen/structure/fortress"),
 				context -> {

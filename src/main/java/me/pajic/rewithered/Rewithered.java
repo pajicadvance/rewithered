@@ -3,6 +3,7 @@ package me.pajic.rewithered;
 import me.fzzyhmstrs.fzzy_config.api.ConfigApiJava;
 import me.pajic.rewithered.config.ModConfig;
 import me.pajic.rewithered.mixson.DataPatches;
+import me.pajic.rewithered.mixson.MixsonHelper;
 import me.pajic.rewithered.platform.Platform;
 import net.minecraft.resources.Identifier;
 import org.slf4j.Logger;
@@ -23,6 +24,7 @@ public class Rewithered {
 	public static ModConfig CONFIG = ConfigApiJava.registerAndLoadConfig(ModConfig::new);
 
 	public static void onInitialize() {
+		MixsonHelper.setDebugFlags();
 		DataPatches.init();
 	}
 
