@@ -39,15 +39,15 @@ public abstract class AbstractSkeletonMixin extends Mob {
     private void assignWeapon(
 			ServerLevelAccessor level,
 			DifficultyInstance difficulty,
-			EntitySpawnReason spawnType,
-			SpawnGroupData spawnGroupData,
+			EntitySpawnReason spawnReason,
+			SpawnGroupData groupData,
 			CallbackInfoReturnable<SpawnGroupData> cir
     ) {
         boolean isInFortress = ModUtil.getStructureAt(
 				level, level.getLevel().structureManager(), getOnPos(),
                 level.registryAccess().lookupOrThrow(Registries.STRUCTURE).getOrThrow(BuiltinStructures.FORTRESS).value()
         ) != StructureStart.INVALID_START;
-        if (getType() == EntityType.WITHER_SKELETON) {
+        if (getType() == ModUtil.WITHER_SKELETON) {
             if (
 					Rewithered.CONFIG.witherSkeletonTweaks.useBowsInSoulSandValley.get() &&
                     level.getBiome(getOnPos()).is(Biomes.SOUL_SAND_VALLEY) &&

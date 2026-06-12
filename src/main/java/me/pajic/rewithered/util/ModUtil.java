@@ -4,6 +4,12 @@ import com.google.common.collect.ImmutableList;
 import it.unimi.dsi.fastutil.longs.LongSet;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.SectionPos;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.monster.skeleton.WitherSkeleton;
 import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.StructureManager;
@@ -17,11 +23,14 @@ import java.util.function.Consumer;
 
 public class ModUtil {
 
+	@SuppressWarnings("unchecked")
+	public static final EntityType<WitherSkeleton> WITHER_SKELETON = (EntityType<WitherSkeleton>) BuiltInRegistries.ENTITY_TYPE
+			.getValueOrThrow(ResourceKey.create(Registries.ENTITY_TYPE, Identifier.withDefaultNamespace("wither_skeleton")));
+
 	/**
 	 * Code from <a href="https://github.com/TelepathicGrunt/Bumblezone/blob/5d606204d0a68d236f2d31923fdd3286c051060a/common/src/main/java/com/telepathicgrunt/the_bumblezone/utils/GeneralUtils.java#L876-L917">...</a>
 	 * Related issue: <a href="https://github.com/pajicadvance/rewithered/issues/6">...</a>
 	 */
-
 	public static StructureStart getStructureAt(LevelReader level, StructureManager structureManager, BlockPos blockPos, Structure structure) {
 		for(StructureStart structureStart : startsForStructure(level, structureManager, SectionPos.of(blockPos), structure)) {
 			if (structureStart.getBoundingBox().isInside(blockPos)) {
