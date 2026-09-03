@@ -39,6 +39,14 @@ stonecutter parameters {
             replace("ValidatedIdentifier", "ValidatedIdentifier")
             replace("ResourceLocation", "Identifier")
             replace("location()", "identifier()")
+            replace("import net.minecraft.world.entity.monster.AbstractSkeleton;", "import net.minecraft.world.entity.monster.skeleton.AbstractSkeleton;")
+            replace("import net.minecraft.world.entity.monster.WitherSkeleton;", "import net.minecraft.world.entity.monster.skeleton.WitherSkeleton;")
+            replace("MobSpawnType", "EntitySpawnReason")
+            replace("monster/AbstractSkeleton", "monster/skeleton/AbstractSkeleton")
+            replace("import net.minecraft.world.entity.projectile.AbstractArrow;", "import net.minecraft.world.entity.projectile.arrow.AbstractArrow;")
+            replace("import net.minecraft.world.entity.projectile.Arrow;", "import net.minecraft.world.entity.projectile.arrow.Arrow;")
+            replace("projectile/AbstractArrow", "projectile/arrow/AbstractArrow")
+            replace("FabricBrewingRecipeRegistryBuilder", "FabricPotionBrewingBuilder")
         }
     }
 }

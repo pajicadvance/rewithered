@@ -1,37 +1,35 @@
 # general
-mod.id = "modid"
-mod.name = "Template mod"
+mod.id = "rewithered"
+mod.name = "Rewithered"
 mod.group = "me.pajic"
-mod.version = "1.0.0"
-mod.description = ""
+mod.version = "1.0.14"
+mod.description = "Adds wither potions and arrows and integrates them into the world"
 mod.authors = "pajic"
 mod.contributors = ""
 mod.license = "MIT"
 
 # links
-mod.sources_url = "https://github.com/pajicadvance/modid"
-mod.homepage_url = "https://modrinth.com/mod/modid"
-mod.issues_url = "https://github.com/pajicadvance/modid/issues"
+mod.sources_url = "https://github.com/pajicadvance/rewithered"
+mod.homepage_url = "https://modrinth.com/mod/rewithered"
+mod.issues_url = "https://github.com/pajicadvance/rewithered/issues"
 mod.discord_url = "https://discord.gg/5RkzS66zWb"
 
 # publishing
-publish.modrinth = ""
-publish.curseforge = ""
+publish.modrinth = "UY95etAw"
+publish.curseforge = "1335211"
 publish.env.mr = "CLIENT_AND_SERVER" #https://modmuss50.github.io/mod-publish-plugin/platforms/modrinth/#all-options
 publish.env.cf.client = true
 publish.env.cf.server = true
-publish.dry_run = true
+publish.dry_run = false
 
 # loom
 loomx.loom_version = "1.17-SNAPSHOT"
 
 # dependencies
 loader.fabric = "0.19.3"
-dep.mixinconstraints.coords = "com.moulberry:$id:$version"
 dep.fzzy_config.coords = "me.fzzyhmstrs:$id:$version"
 dep.fzzy_config.slug = "fzzy-config"
 dep.sodium.coords = "net.caffeinemc:$id-$loader:$version"
-include.mixinconstraints = "1.1.0"
 dev.runtime_optionals = []
 
 [fabric]
