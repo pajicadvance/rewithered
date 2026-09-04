@@ -47,6 +47,7 @@ stonecutter parameters {
             replace("import net.minecraft.world.entity.projectile.Arrow;", "import net.minecraft.world.entity.projectile.arrow.Arrow;")
             replace("projectile/AbstractArrow", "projectile/arrow/AbstractArrow")
             replace("FabricBrewingRecipeRegistryBuilder", "FabricPotionBrewingBuilder")
+            replace("net.ramixin.mixson_backport", "net.ramixin.mixson")
         }
     }
 }
