@@ -154,7 +154,6 @@ public class LootTablePatches {
             //?}
     );
 
-
 	public static void init() {
 		if (Rewithered.CONFIG.witherSkeletonTweaks.dropWitherArrows.get()) MixsonHelper.registerSingleJson(
 				"Add wither arrow drop to wither skeletons with bows",
