@@ -1,2 +1,1 @@
-- Updated to NeoForge 26.2.
-- Minecraft 1.21.1 is supported again.
+- Added Fabric 26.3 version.

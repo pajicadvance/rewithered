@@ -8,10 +8,13 @@ import me.pajic.rewithered.potion.ModPotions;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.fabricmc.fabric.api.registry.FabricPotionBrewingBuilder;
+
+//? <26.3 {
+/*import net.fabricmc.fabric.api.registry.FabricPotionBrewingBuilder;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.crafting.Ingredient;
+*///?}
 
 @Entrypoint("main")
 public class FabricEntrypoint implements ModInitializer {
@@ -34,7 +37,8 @@ public class FabricEntrypoint implements ModInitializer {
                 Rewithered.id("strong_decay"),
                 ModPotions.STRONG_DECAY
         );
-        FabricPotionBrewingBuilder.BUILD.register(builder -> {
+        //? <26.3 {
+        /*FabricPotionBrewingBuilder.BUILD.register(builder -> {
             builder.registerPotionRecipe(
                     Potions.AWKWARD,
                     Ingredient.of(Items.WITHER_ROSE),
@@ -51,6 +55,7 @@ public class FabricEntrypoint implements ModInitializer {
                     BuiltInRegistries.POTION.wrapAsHolder(ModPotions.STRONG_DECAY)
             );
         });
+        *///?}
     }
 }
 //?}

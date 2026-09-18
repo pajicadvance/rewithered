@@ -12,7 +12,13 @@ public class WorldGenPatches {
 				"Replace skeletons with wither skeletons in soul sand valleys",
 				new Index("minecraft:worldgen/biome/soul_sand_valley"),
 				context -> {
-					JsonObject spawnCosts = context.getFile().getAsJsonObject().getAsJsonObject("spawn_costs");
+					JsonObject spawnCosts = context.getFile().getAsJsonObject()
+                            //? >26.2 {
+                            .getAsJsonObject("attributes")
+                            .getAsJsonObject("minecraft:gameplay/natural_mob_spawns")
+                            .getAsJsonObject("argument")
+                            //?}
+                            .getAsJsonObject("spawn_costs");
 					if (spawnCosts.has("minecraft:skeleton")) {
 						double charge = spawnCosts.getAsJsonObject("minecraft:skeleton").get("charge").getAsDouble();
 						double energy_budget = spawnCosts.getAsJsonObject("minecraft:skeleton").get("energy_budget").getAsDouble();
@@ -22,7 +28,14 @@ public class WorldGenPatches {
 						witherSkeleton.addProperty("energy_budget", energy_budget);
 						spawnCosts.add("minecraft:wither_skeleton", witherSkeleton);
 					}
-					JsonArray monsters = context.getFile().getAsJsonObject().getAsJsonObject("spawners").getAsJsonArray("monster");
+					JsonArray monsters = context.getFile().getAsJsonObject()
+                            //? >26.2 {
+                            .getAsJsonObject("attributes")
+                            .getAsJsonObject("minecraft:gameplay/natural_mob_spawns")
+                            .getAsJsonObject("argument")
+                            //?}
+                            //~ if >26.2 'spawners' -> 'spawns_by_category'
+                            .getAsJsonObject("spawns_by_category").getAsJsonArray("monster");
 					int idToRemove = -1;
 					JsonObject witherSkeleton = new JsonObject();
 					for (int i = 0; i < monsters.size(); i++) {
@@ -30,8 +43,12 @@ public class WorldGenPatches {
 						if (monster.get("type").getAsString().equals("minecraft:skeleton")) {
 							idToRemove = i;
 							witherSkeleton.addProperty("type", "minecraft:wither_skeleton");
-							witherSkeleton.addProperty("maxCount", monster.get("maxCount").getAsInt());
+                            //? <26.3 {
+							/*witherSkeleton.addProperty("maxCount", monster.get("maxCount").getAsInt());
 							witherSkeleton.addProperty("minCount", monster.get("minCount").getAsInt());
+                            *///?} else {
+                            witherSkeleton.addProperty("count", monster.get("count").getAsInt());
+                            //?}
 							witherSkeleton.addProperty("weight", monster.get("weight").getAsInt());
 							break;
 						}

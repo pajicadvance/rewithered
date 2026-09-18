@@ -63,7 +63,7 @@ public class ModUtil {
 			if (!level.hasChunk(sectionPos.x(), sectionPos.z())) {
 				continue;
 			}
-			StructureStart structureStart = structureManager.getStartForStructure(/*? <26.3-pre-1 {*/sectionPos, /*?}*/structure, level.getChunk(sectionPos.x(), sectionPos.z(), ChunkStatus.STRUCTURE_STARTS));
+			StructureStart structureStart = structureManager.getStartForStructure(/*? <26.3-pre-1 {*//*sectionPos, *//*?}*/structure, level.getChunk(sectionPos.x(), sectionPos.z(), ChunkStatus.STRUCTURE_STARTS));
 			if (structureStart != null && structureStart.isValid()) {
 				consumer.accept(structureStart);
 			}
