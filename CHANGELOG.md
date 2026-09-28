@@ -1,1 +1,1 @@
-- Added Fabric 26.3 version.
+- Fixed wither skeletons always dropping only one Arrow of Decay when killed with a Looting weapon.

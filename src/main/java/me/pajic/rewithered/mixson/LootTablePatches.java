@@ -64,8 +64,7 @@ public class LootTablePatches {
                         "min": 0.0
                       },
                       "enchantment": "minecraft:looting",
-                      "function": "minecraft:enchanted_count_increase",
-                      "limit": 1
+                      "function": "minecraft:enchanted_count_increase"
                     },
                     {
                       "function": "minecraft:set_potion",
@@ -104,7 +103,6 @@ public class LootTablePatches {
                         "min": 0,
                         "max": 1
                       },
-                      "limit": 1,
                       "enchantment": "minecraft:looting"
                     },
                     {
